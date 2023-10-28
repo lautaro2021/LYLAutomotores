@@ -1,0 +1,19 @@
+.section{
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    font-size: 60px;
+}
+#banner__icon{
+    opacity: 0;
+}
