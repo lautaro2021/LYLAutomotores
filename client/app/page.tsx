@@ -5,7 +5,7 @@ import Banner from "./layouts/banner/Banner";
 import OurSelected from "./layouts/selected/OurSelected";
 import OurUsedSelections from "./layouts/used/OurUsedSelections";
 import FindUs from "./layouts/find-us/FindUs";
-import VideoBG from "./layouts/videobg/VideoBG";
+import Contact from "./layouts/contact/contact";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <OurSelected />
       <OurUsedSelections />
       <FindUs />
-      <VideoBG />
+      <Contact/>
     </main>
   );
 }

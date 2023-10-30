@@ -21,7 +21,6 @@ function OurSelected() {
           scrollTrigger: {
             trigger: section.current,
             start: "-=100%",
-            markers: true,
             scrub: true,
           },
         })
