@@ -55,7 +55,7 @@ function Navbar() {
       <header className={style.header}>
         <CenterDiv>
           <div className={style.container}>
-            <img src="/assets/iso.webp" width={100} />
+            <img src="/assets/iso.webp" width={40} />
             <ul>
               {!menuOpen && (
                 <li className={style.contact}>

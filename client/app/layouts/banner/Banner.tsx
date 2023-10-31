@@ -14,6 +14,7 @@ import {
 import gsap from "gsap";
 
 import CenterDiv from "@/app/components/center-div/CenterDiv";
+import MainSection from "@/app/components/main-section/MainSection";
 
 function Banner() {
   useEffect(() => {
@@ -26,7 +27,7 @@ function Banner() {
   }, []);
 
   return (
-    <section className={style.section}>
+    <MainSection padding="40px 0px">
       <CenterDiv>
         <div className={style.container}>
           <SiAudi id="banner__icon" />
@@ -39,7 +40,7 @@ function Banner() {
           <SiJeep id="banner__icon" />
         </div>
       </CenterDiv>
-    </section>
+    </MainSection>
   );
 }
 

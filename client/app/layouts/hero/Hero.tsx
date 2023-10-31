@@ -36,8 +36,6 @@ function Hero() {
       <video autoPlay loop playsInline muted src="/videos/herobg.mp4" />
       <CenterDiv>
         <div className={style.text__container}>
-          <div></div>
-          <text></text>
           <h1>
             {title.split("").map((str: string, index: number) => (
               <span key={index} id="title__span">
