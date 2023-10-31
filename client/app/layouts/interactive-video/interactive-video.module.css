@@ -1,11 +1,19 @@
 .container{
     width: 100%;
     height: 100vh;
-    display: flex;
+    position: relative;
 }
-.container video{
+.container img{
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.container img:not(:first-child) {
+    display: none;
+}
+.container img:first-child {
     opacity: 0;
 }

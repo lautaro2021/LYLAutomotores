@@ -1,4 +1,7 @@
+"use client";
+import { useEffect } from "react";
 import styles from "./page.module.css";
+import Lenis from "@studio-freight/lenis";
 
 import Hero from "./layouts/hero/Hero";
 import Banner from "./layouts/banner/Banner";
@@ -10,6 +13,19 @@ import InteractiveVideo from "./layouts/interactive-video/InteractiveVideo";
 import Contact from "./layouts/contact/contact";
 
 export default function Home() {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    lenis.on("scroll", (e: any) => {});
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
   return (
     <main className={styles.main}>
       <Hero />

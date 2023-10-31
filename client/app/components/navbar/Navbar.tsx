@@ -13,6 +13,13 @@ function Navbar() {
   const timeline: any = useRef();
   const megamenu = useRef(null);
 
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       const menuOptions = document.querySelectorAll("#menu__opt");
@@ -55,7 +62,14 @@ function Navbar() {
       <header className={style.header}>
         <CenterDiv>
           <div className={style.container}>
-            <img src="/assets/iso.webp" width={40} />
+            <img
+              src="/assets/iso.webp"
+              width={40}
+              onClick={scrollTop}
+              alt="LyL Automotores - agencia de autos en rosario"
+              title="LyL Automotores - agencia de autos en rosario"
+              style={{ cursor: "pointer" }}
+            />
             <ul>
               {!menuOpen && (
                 <li className={style.contact}>

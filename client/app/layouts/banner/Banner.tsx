@@ -18,27 +18,43 @@ import MainSection from "@/app/components/main-section/MainSection";
 
 function Banner() {
   useEffect(() => {
-    // const icons = document.querySelectorAll("#banner__icon");
-    // const ctx = gsap.context(() => {
-    //   const timeline = gsap.timeline({});
-    //   timeline.fromTo(icons, { opacity: 0 }, { opacity: 1, stagger: 0.03 });
-    // });
-    // return () => ctx.revert();
+    const icons = document.querySelectorAll("#banner__icon");
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline({});
+      timeline.to(icons, { opacity: 1, stagger: 0.15, delay: 0.5 });
+    });
+    return () => ctx.revert();
   }, []);
 
   return (
     <MainSection padding="40px 0px">
       <CenterDiv>
-        <div className={style.container}>
-          <SiAudi id="banner__icon" />
-          <SiVolkswagen id="banner__icon" />
-          <SiBmw id="banner__icon" />
-          <SiFord id="banner__icon" />
-          <SiRenault id="banner__icon" />
-          <SiChevrolet id="banner__icon" />
-          <SiMercedes id="banner__icon" />
-          <SiJeep id="banner__icon" />
-        </div>
+        <ul className={style.container}>
+          <li id="banner__icon">
+            <SiAudi />
+          </li>
+          <li id="banner__icon">
+            <SiVolkswagen />
+          </li>
+          <li id="banner__icon">
+            <SiBmw />
+          </li>
+          <li id="banner__icon">
+            <SiFord />
+          </li>
+          <li id="banner__icon">
+            <SiRenault />
+          </li>
+          <li id="banner__icon">
+            <SiChevrolet />
+          </li>
+          <li id="banner__icon">
+            <SiMercedes />
+          </li>
+          <li id="banner__icon">
+            <SiJeep />
+          </li>
+        </ul>
       </CenterDiv>
     </MainSection>
   );

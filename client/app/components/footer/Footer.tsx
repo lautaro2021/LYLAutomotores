@@ -13,7 +13,13 @@ function Footer() {
       <CenterDiv>
         <div className={style.main__container}>
           <div className={style.footer__container}>
-            <img src="/assets/iso.webp" width={100} height={110} />
+            <img
+              src="/assets/iso.webp"
+              width={100}
+              height={110}
+              alt="LyL Automotores - agencia de autos en rosario"
+              title="LyL Automotores - agencia de autos en rosario"
+            />
             <aside>
               <ul className={poppins.className}>
                 <li>Nosotros</li>

@@ -1,4 +1,3 @@
-"use client";
 import { useEffect } from "react";
 import { playfair, poppins } from "../../common/fonts";
 import style from "./hero.module.css";
@@ -10,6 +9,8 @@ function Hero() {
   const title = "Encontrá el auto perfecto que estás buscando";
 
   useEffect(() => {
+    scrollTo(0, 0);
+
     const titleSpan = document.querySelectorAll("#title__span");
     const titleP = document.getElementById("title__p");
 

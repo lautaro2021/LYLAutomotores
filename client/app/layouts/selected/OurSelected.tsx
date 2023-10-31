@@ -4,11 +4,14 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
+import useFetcher from "@/app/utils/useFetcher";
 import { playfair } from "@/app/common/fonts";
 import CenterDiv from "@/app/components/center-div/CenterDiv";
 import Carrousel from "@/app/components/carrousel/Carrousel";
 
 function OurSelected() {
+  const { data } = useFetcher("https://rickandmortyapi.com/api/character");
+
   gsap.registerPlugin(ScrollTrigger);
   const section: any = useRef();
 

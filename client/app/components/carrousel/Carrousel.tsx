@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import style from "./carrousel.module.css";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
