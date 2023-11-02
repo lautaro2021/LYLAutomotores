@@ -12,7 +12,11 @@ import FindUs from "./layouts/find-us/FindUs";
 import InteractiveVideo from "./layouts/interactive-video/InteractiveVideo";
 import Contact from "./layouts/contact/contact";
 
+import useFetcher from "./utils/useFetcher";
+
 export default function Home() {
+  const { data, isLoading } = useFetcher();
+
   useEffect(() => {
     const lenis = new Lenis();
 
@@ -28,10 +32,10 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <Hero />
+      <Hero props={data?.hero} />
       <Banner />
-      <OurSelected />
-      <OurUsedSelections />
+      <OurSelected props={data?.exclusivos} isLoading={isLoading} />
+      <OurUsedSelections props={data?.usados} isLoading={isLoading} />
       <OurServices />
       <FindUs />
       <InteractiveVideo />

@@ -23,7 +23,6 @@ function OurServices() {
           scrollTrigger: {
             trigger: section,
             pin: true,
-            markers: true,
             start: "top top",
             end: "+=" + section.offsetHeight * 4,
             pinSpacing: true,

@@ -7,17 +7,25 @@ import { AiFillInstagram } from "react-icons/ai";
 import { IoLogoWhatsapp } from "react-icons/io5";
 
 import CenterDiv from "../center-div/CenterDiv";
+import scrollToSection from "@/app/utils/scrollToSection";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const timeline: any = useRef();
   const megamenu = useRef(null);
 
+  const phoneNumber = "3415005025";
+
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "instant",
     });
+  };
+
+  const toggleMenu = () => {
+    !menuOpen ? timeline.current.play() : timeline.current.reverse();
+    setMenuOpen(!menuOpen);
   };
 
   useEffect(() => {
@@ -52,11 +60,6 @@ function Navbar() {
     return () => ctx.revert();
   }, []);
 
-  const toggleMenu = () => {
-    !menuOpen ? timeline.current.play() : timeline.current.reverse();
-    setMenuOpen(!menuOpen);
-  };
-
   return (
     <>
       <header className={style.header}>
@@ -72,7 +75,10 @@ function Navbar() {
             />
             <ul>
               {!menuOpen && (
-                <li className={style.contact}>
+                <li
+                  className={style.contact}
+                  onClick={() => scrollToSection("contact__section")}
+                >
                   Contactanos <BsArrowRightShort />
                 </li>
               )}
@@ -87,12 +93,32 @@ function Navbar() {
       <section className={style.side__menu} ref={megamenu}>
         <div className={style.side__menu__container}>
           <ul>
-            <li id="menu__opt">Nosotros</li>
-            <li id="menu__opt">Vehiculos</li>
-            <li id="menu__opt">Encontranos</li>
+            <li
+              id="menu__opt"
+              onClick={() => scrollToSection("selected__section")}
+            >
+              Exclusivos
+            </li>
+            <li id="menu__opt" onClick={() => scrollToSection("used__section")}>
+              Seleccionados
+            </li>
+            <li id="menu__opt" onClick={() => scrollToSection("find__section")}>
+              Encontranos
+            </li>
           </ul>
           <div className={style.social__container} id="social__container">
-            <AiFillInstagram />
+            <a
+              href="https://www.instagram.com/lylautomotores_/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <AiFillInstagram />
+            </a>
+            <a
+              href={`https://wa.me/${phoneNumber}`}
+              target="_blank"
+              rel="noreferrer"
+            ></a>
             <IoLogoWhatsapp />
           </div>
         </div>

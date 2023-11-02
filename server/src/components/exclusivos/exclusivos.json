@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_exclusivos_exclusivos",
+  "info": {
+    "displayName": "exclusivos"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "carrusel": {
+      "displayName": "carrusel",
+      "type": "component",
+      "repeatable": true,
+      "component": "carrusel.carrusel"
+    }
+  }
+}

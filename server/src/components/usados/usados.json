@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_usados_usados",
+  "info": {
+    "displayName": "usados"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "carrusel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "carrusel.carrusel"
+    }
+  }
+}

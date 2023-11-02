@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import style from "./footer.module.css";
 import { AiFillInstagram } from "react-icons/ai";
@@ -5,6 +6,7 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 import { poppins } from "@/app/common/fonts";
 
 import CenterDiv from "../center-div/CenterDiv";
+import scrollToSection from "@/app/utils/scrollToSection";
 
 function Footer() {
   const phoneNumber = "3415005025";
@@ -22,9 +24,15 @@ function Footer() {
             />
             <aside>
               <ul className={poppins.className}>
-                <li>Nosotros</li>
-                <li>Vehiculos</li>
-                <li>Encontranos</li>
+                <li onClick={() => scrollToSection("selected__section")}>
+                  Exclusivos
+                </li>
+                <li onClick={() => scrollToSection("used__section")}>
+                  Seleccionados
+                </li>
+                <li onClick={() => scrollToSection("find__section")}>
+                  Encontranos
+                </li>
               </ul>
             </aside>
           </div>

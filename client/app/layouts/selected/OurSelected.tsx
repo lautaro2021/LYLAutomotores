@@ -4,18 +4,81 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
-import useFetcher from "@/app/utils/useFetcher";
 import { playfair } from "@/app/common/fonts";
 import CenterDiv from "@/app/components/center-div/CenterDiv";
 import Carrousel from "@/app/components/carrousel/Carrousel";
 
-function OurSelected() {
-  const { data } = useFetcher("https://rickandmortyapi.com/api/character");
+export interface ExclusivosClass {
+  id: number;
+  title: string;
+  carrusel: Carrusel[];
+}
 
+export interface Carrusel {
+  id: number;
+  marca: string;
+  modelo: string;
+  ano: string;
+  kilometros: string;
+  imagenes: Imagenes;
+}
+
+export interface Imagenes {
+  data: Datum[];
+}
+
+export interface Datum {
+  id: number;
+  attributes: Attributes;
+}
+
+export interface Attributes {
+  name: string;
+  alternativeText: null;
+  caption: null;
+  width: number;
+  height: number;
+  formats: Formats;
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl: null;
+  provider: string;
+  provider_metadata: null;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface Formats {
+  large: Large;
+  small: Large;
+  medium: Large;
+  thumbnail: Large;
+}
+
+export interface Large {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path: null;
+  size: number;
+  width: number;
+  height: number;
+}
+
+function OurSelected({
+  props,
+  isLoading,
+}: {
+  props: ExclusivosClass;
+  isLoading: boolean;
+}) {
   gsap.registerPlugin(ScrollTrigger);
   const section: any = useRef();
-
-  const emptyArray = new Array(5);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -33,13 +96,13 @@ function OurSelected() {
     return () => ctx.revert();
   });
   return (
-    <section className={style.section} ref={section}>
+    <section className={style.section} ref={section} id="selected__section">
       <CenterDiv>
         <div className={style.container}>
           <h2 className={playfair.className} id="selected__title">
             Nuestros exclusivos
           </h2>
-          <Carrousel elements={emptyArray} />
+          <Carrousel elements={props?.carrusel} isLoading={isLoading} />
         </div>
       </CenterDiv>
     </section>

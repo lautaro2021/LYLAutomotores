@@ -5,7 +5,41 @@ import gsap from "gsap";
 
 import CenterDiv from "@/app/components/center-div/CenterDiv";
 
-function Hero() {
+export interface HeroClass {
+  id: number;
+  title: string;
+  background: Background;
+}
+
+export interface Background {
+  data: Data;
+}
+
+export interface Data {
+  id: number;
+  attributes: Attributes;
+}
+
+export interface Attributes {
+  name: string;
+  alternativeText: null;
+  caption: null;
+  width: null;
+  height: null;
+  formats: null;
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl: null;
+  provider: string;
+  provider_metadata: null;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+function Hero({ props }: { props: HeroClass }) {
   const title = "Encontrá el auto perfecto que estás buscando";
 
   useEffect(() => {
@@ -34,7 +68,13 @@ function Hero() {
 
   return (
     <section className={playfair.className} id={style.section}>
-      <video autoPlay loop playsInline muted src="/videos/herobg.mp4" />
+      <video
+        autoPlay
+        loop
+        playsInline
+        muted
+        src={`${process.env.NEXT_PUBLIC_FETCH_URL}${props?.background?.data?.attributes?.url}`}
+      />
       <CenterDiv>
         <div className={style.text__container}>
           <h1>

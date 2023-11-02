@@ -1,59 +1,111 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import style from "./carrousel.module.css";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
+import type { Carrusel } from "@/app/layouts/selected/OurSelected";
+import gsap from "gsap";
 
-function Carrousel({ elements }: { elements: any }) {
-  const elementss = ["hola", "chau"];
+import Loader from "../loader/Loader";
+
+function Carrousel({
+  elements,
+  isLoading,
+}: {
+  elements: Carrusel[];
+  isLoading: boolean;
+}) {
   const [actualPosition, setActualPosition] = useState(0);
+  const timeline = gsap.timeline({ paused: true });
+
+  const playAnimation = () => {
+    const selectedElements = document.querySelectorAll("#carusel__element");
+    timeline.to(selectedElements, {
+      y: -200,
+      stagger: 0.05,
+      opacity: 0,
+    });
+    timeline.to(selectedElements, {
+      y: 0,
+      stagger: 0.05,
+      opacity: 1,
+    });
+    timeline.restart();
+  };
 
   const handleDown = () => {
     actualPosition > 0 && setActualPosition(actualPosition - 1);
+    playAnimation();
   };
 
   const handleUp = () => {
-    actualPosition < elementss.length - 1 &&
+    actualPosition < elements?.length - 1 &&
       setActualPosition(actualPosition + 1);
+    playAnimation();
   };
 
   return (
-    <>
-      <div className={style.carousel__main}>
-        {elementss.map((element: any, index: number) => {
-          if (actualPosition === index) {
-            return (
-              <div key={index} className={style.carousel__item}>
-                {index}
-              </div>
-            );
-          }
-        })}
-      </div>
-      <div className={style.info__container}>
-        <div className={style.text__container}>
-          <h3>Mercedes Benz</h3>
-          <span>AMG Serie A</span>
-        </div>
-        <div className={style.button__container}>
-          <BsArrowLeftCircle
-            style={{
-              cursor: "pointer",
-              color: `${actualPosition === 0 ? "grey" : "white"}`,
-            }}
-            onClick={handleDown}
-          />
-          <BsArrowRightCircle
-            style={{
-              cursor: "pointer",
-              color: `${
-                actualPosition === elementss.length - 1 ? "grey" : "white"
-              }`,
-            }}
-            onClick={handleUp}
-          />
-        </div>
-      </div>
-    </>
+    <section className={style.carousel__main}>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <article className={style.carousel__container}>
+            {elements?.map((element: Carrusel, index: number) => {
+              if (actualPosition === index) {
+                return (
+                  <figure
+                    key={element.id}
+                    className={style.image__container}
+                    id="carusel__element"
+                  >
+                    <img
+                      src={`${process.env.NEXT_PUBLIC_FETCH_URL}${element?.imagenes?.data[0]?.attributes?.url}`}
+                      alt={`LyL Automotores - Modelo${element?.modelo}`}
+                      title={`LyL Automotores - Modelo${element?.modelo}`}
+                      loading="lazy"
+                    />
+                  </figure>
+                );
+              }
+            })}
+          </article>
+          <aside className={style.info__container}>
+            <div className={style.text__container}>
+              <h3 id="carusel__element">
+                {elements[actualPosition]?.marca} -{" "}
+                {elements[actualPosition]?.modelo}
+              </h3>
+              <p className={style.data__container}>
+                <span id="carusel__element">
+                  {elements[actualPosition]?.kilometros}KM
+                </span>
+                <span id="carusel__element">
+                  {elements[actualPosition]?.ano}
+                </span>
+              </p>
+            </div>
+            <nav className={style.button__container}>
+              <BsArrowLeftCircle
+                style={{
+                  cursor: "pointer",
+                  color: `${actualPosition === 0 ? "grey" : "white"}`,
+                }}
+                onClick={handleDown}
+              />
+              <BsArrowRightCircle
+                style={{
+                  cursor: "pointer",
+                  color: `${
+                    actualPosition === elements?.length - 1 ? "grey" : "white"
+                  }`,
+                }}
+                onClick={handleUp}
+              />
+            </nav>
+          </aside>
+        </>
+      )}
+    </section>
   );
 }
 
