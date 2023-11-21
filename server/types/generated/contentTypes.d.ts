@@ -376,7 +376,7 @@ export interface ApiHomeHome extends Schema.CollectionType {
   attributes: {
     hero: Attribute.Component<'hero.hero'>;
     exclusivos: Attribute.Component<'exclusivos.exclusivos'>;
-    usados: Attribute.Component<'usados.usados'>;
+    vehiculos: Attribute.Component<'vehiculos.vehiculos'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

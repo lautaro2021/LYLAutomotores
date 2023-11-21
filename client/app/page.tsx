@@ -6,7 +6,7 @@ import Lenis from "@studio-freight/lenis";
 import Hero from "./layouts/hero/Hero";
 import Banner from "./layouts/banner/Banner";
 import OurSelected from "./layouts/selected/OurSelected";
-import OurUsedSelections from "./layouts/used/OurUsedSelections";
+import OurCars from "./layouts/our-cars/OurCars";
 import OurServices from "./layouts/our-services/OurServices";
 import FindUs from "./layouts/find-us/FindUs";
 import InteractiveVideo from "./layouts/interactive-video/InteractiveVideo";
@@ -35,7 +35,7 @@ export default function Home() {
       <Hero props={data?.hero} />
       <Banner />
       <OurSelected props={data?.exclusivos} isLoading={isLoading} />
-      <OurUsedSelections props={data?.usados} isLoading={isLoading} />
+      <OurCars props={data?.vehiculos} isLoading={isLoading} />
       <OurServices />
       <FindUs />
       <InteractiveVideo />

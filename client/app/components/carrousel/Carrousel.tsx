@@ -1,9 +1,8 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import style from "./carrousel.module.css";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import type { Carrusel } from "@/app/layouts/selected/OurSelected";
-import gsap from "gsap";
 
 import Loader from "../loader/Loader";
 
@@ -15,32 +14,14 @@ function Carrousel({
   isLoading: boolean;
 }) {
   const [actualPosition, setActualPosition] = useState(0);
-  const timeline = gsap.timeline({ paused: true });
-
-  const playAnimation = () => {
-    const selectedElements = document.querySelectorAll("#carusel__element");
-    timeline.to(selectedElements, {
-      y: -200,
-      stagger: 0.05,
-      opacity: 0,
-    });
-    timeline.to(selectedElements, {
-      y: 0,
-      stagger: 0.05,
-      opacity: 1,
-    });
-    timeline.restart();
-  };
 
   const handleDown = () => {
     actualPosition > 0 && setActualPosition(actualPosition - 1);
-    playAnimation();
   };
 
   const handleUp = () => {
     actualPosition < elements?.length - 1 &&
       setActualPosition(actualPosition + 1);
-    playAnimation();
   };
 
   return (

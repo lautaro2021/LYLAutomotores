@@ -1,0 +1,11 @@
+.cards_container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    min-height: 350px;
+}
+.cards_container article{
+    flex-grow: 1;
+}

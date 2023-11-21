@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_vehiculos_vehiculos",
+  "info": {
+    "displayName": "vehiculos"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "vehiculo": {
+      "displayName": "vehiculo",
+      "type": "component",
+      "repeatable": true,
+      "component": "vehiculo.vehiculo"
+    }
+  }
+}

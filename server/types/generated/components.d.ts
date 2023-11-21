@@ -48,6 +48,34 @@ export interface UsadosUsados extends Schema.Component {
   };
 }
 
+export interface VehiculoVehiculo extends Schema.Component {
+  collectionName: 'components_vehiculo_vehiculos';
+  info: {
+    displayName: 'vehiculo';
+    icon: 'car';
+    description: '';
+  };
+  attributes: {
+    modelo: Attribute.String;
+    combustible: Attribute.Enumeration<['diesel', 'nafta', 'gnc']>;
+    marca: Attribute.String;
+    kilometros: Attribute.String;
+    ano: Attribute.String;
+    fotos: Attribute.Media;
+  };
+}
+
+export interface VehiculosVehiculos extends Schema.Component {
+  collectionName: 'components_vehiculos_vehiculos';
+  info: {
+    displayName: 'vehiculos';
+  };
+  attributes: {
+    title: Attribute.String;
+    vehiculo: Attribute.Component<'vehiculo.vehiculo', true>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -55,6 +83,8 @@ declare module '@strapi/types' {
       'exclusivos.exclusivos': ExclusivosExclusivos;
       'hero.hero': HeroHero;
       'usados.usados': UsadosUsados;
+      'vehiculo.vehiculo': VehiculoVehiculo;
+      'vehiculos.vehiculos': VehiculosVehiculos;
     }
   }
 }

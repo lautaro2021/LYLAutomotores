@@ -27,6 +27,7 @@ function OurServices() {
             end: "+=" + section.offsetHeight * 4,
             pinSpacing: true,
             scrub: true,
+            markers: true,
           },
         })
         .to("#card1", { display: "inline-block" })

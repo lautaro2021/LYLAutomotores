@@ -24,11 +24,11 @@
       "repeatable": false,
       "component": "exclusivos.exclusivos"
     },
-    "usados": {
-      "displayName": "usados",
+    "vehiculos": {
+      "displayName": "vehiculos",
       "type": "component",
       "repeatable": false,
-      "component": "usados.usados"
+      "component": "vehiculos.vehiculos"
     }
   }
 }

@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_vehiculo_vehiculos",
+  "info": {
+    "displayName": "vehiculo",
+    "icon": "car",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "modelo": {
+      "type": "string"
+    },
+    "combustible": {
+      "type": "enumeration",
+      "enum": [
+        "diesel",
+        "nafta",
+        "gnc"
+      ]
+    },
+    "marca": {
+      "type": "string"
+    },
+    "kilometros": {
+      "type": "string"
+    },
+    "ano": {
+      "type": "string"
+    },
+    "fotos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
