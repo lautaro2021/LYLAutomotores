@@ -28,6 +28,11 @@ function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
+  const goToSectionAndCloseMenu = (section: string) => {
+    scrollToSection(section);
+    toggleMenu();
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       const menuOptions = document.querySelectorAll("#menu__opt");
@@ -48,12 +53,12 @@ function Navbar() {
       );
       timeline.current.to(menuOptions, {
         opacity: 1,
-        stagger: 0.25,
-        duration: 0.25,
+        stagger: 0.15,
+        duration: 0.15,
       });
       timeline.current.to(socialContainer, {
         opacity: 1,
-        duration: 0.25,
+        duration: 0.15,
       });
     });
 
@@ -74,14 +79,6 @@ function Navbar() {
               style={{ cursor: "pointer" }}
             />
             <ul>
-              {!menuOpen && (
-                <li
-                  className={style.contact}
-                  onClick={() => scrollToSection("contact__section")}
-                >
-                  Contactanos <BsArrowRightShort />
-                </li>
-              )}
               <li className={style.menu} onClick={toggleMenu}>
                 <hr />
                 <hr id="menu__icon" />
@@ -95,15 +92,27 @@ function Navbar() {
           <ul>
             <li
               id="menu__opt"
-              onClick={() => scrollToSection("selected__section")}
+              onClick={() => goToSectionAndCloseMenu("selected__section")}
             >
               Exclusivos
             </li>
-            <li id="menu__opt" onClick={() => scrollToSection("used__section")}>
-              Seleccionados
+            <li
+              id="menu__opt"
+              onClick={() => goToSectionAndCloseMenu("our_cars_section")}
+            >
+              Nuestros vehiculos
             </li>
-            <li id="menu__opt" onClick={() => scrollToSection("find__section")}>
+            <li
+              id="menu__opt"
+              onClick={() => goToSectionAndCloseMenu("find__section")}
+            >
               Encontranos
+            </li>
+            <li
+              id="menu__opt"
+              onClick={() => goToSectionAndCloseMenu("contact__section")}
+            >
+              Contactanos
             </li>
           </ul>
           <div className={style.social__container} id="social__container">
@@ -118,8 +127,9 @@ function Navbar() {
               href={`https://wa.me/${phoneNumber}`}
               target="_blank"
               rel="noreferrer"
-            ></a>
-            <IoLogoWhatsapp />
+            >
+              <IoLogoWhatsapp />
+            </a>
           </div>
         </div>
       </section>

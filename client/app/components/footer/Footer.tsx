@@ -27,8 +27,8 @@ function Footer() {
                 <li onClick={() => scrollToSection("selected__section")}>
                   Exclusivos
                 </li>
-                <li onClick={() => scrollToSection("used__section")}>
-                  Seleccionados
+                <li onClick={() => scrollToSection("our_cars_section")}>
+                  Nuestros vehiculos
                 </li>
                 <li onClick={() => scrollToSection("find__section")}>
                   Encontranos

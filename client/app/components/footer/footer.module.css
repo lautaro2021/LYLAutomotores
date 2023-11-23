@@ -26,8 +26,9 @@
     margin: 12px 0;
     cursor: pointer;
     position: relative;
+    width: fit-content;
 }
-.footer__container aside ul li::after{
+.footer__container aside ul li:after{
     content: '';
     position: absolute;
     width: 100%;
@@ -39,7 +40,7 @@
     transform-origin: bottom left;
     transition: transform 0.25s ease-out;
 }
-.footer__container aside ul li:hover{
+.footer__container aside ul li:hover::after{
     transform: scaleX(1);
 }
 .powered {

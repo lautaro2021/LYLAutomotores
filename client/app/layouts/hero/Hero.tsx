@@ -40,7 +40,7 @@ export interface Attributes {
 }
 
 function Hero({ props }: { props: HeroClass }) {
-  const title = "Encontrá el auto perfecto que estás buscando";
+  const title = "Encontrá el auto que estás buscando";
 
   useEffect(() => {
     scrollTo(0, 0);

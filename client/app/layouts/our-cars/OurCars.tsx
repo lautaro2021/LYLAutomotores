@@ -24,7 +24,7 @@ function OurCars({
         .timeline({
           scrollTrigger: {
             trigger: "#our_cars_section",
-            start: "-=100%",
+            start: "-=200%",
           },
         })
         .to("#our_cars_section", { opacity: 1, duration: 0.5 });
