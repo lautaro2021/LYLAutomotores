@@ -3,7 +3,6 @@ import style from "./our-selected.module.css";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-
 import { playfair } from "@/app/common/fonts";
 import CenterDiv from "@/app/components/center-div/CenterDiv";
 import Carrousel from "@/app/components/carrousel/Carrousel";
@@ -86,11 +85,10 @@ function OurSelected({
         .timeline({
           scrollTrigger: {
             trigger: section.current,
-            start: "-=100%",
-            scrub: true,
+            start: "-=50%",
           },
         })
-        .to("#selected__title", { x: 0, opacity: 1, duration: 1 });
+        .to(section.current, { opacity: 1, duration: 0.5 });
     });
 
     return () => ctx.revert();

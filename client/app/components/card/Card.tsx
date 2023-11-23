@@ -19,14 +19,16 @@ type CardPropsType = {
 function Card({
   props,
   isLoading,
+  id,
 }: {
   props: CardPropsType;
   isLoading: boolean;
+  id: string;
 }) {
   const { marca, modelo, ano, kilometros, combustible, fotos } = props;
 
   return (
-    <article className={style.main_article}>
+    <article className={style.main_article} id={id}>
       {isLoading ? (
         <Loader />
       ) : (
