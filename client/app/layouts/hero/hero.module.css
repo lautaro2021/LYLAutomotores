@@ -31,7 +31,7 @@
     opacity: 0;
 }
 .text__container h1{
-    max-width: 20ch;
+    max-width: 25ch;
     line-height: 100%;
 }
 .text__container h1 span{
@@ -45,4 +45,5 @@
     display: block;
     opacity: 0;
     line-height: 100%;
+    font-family: 'Poppins', sans-serif;
 }

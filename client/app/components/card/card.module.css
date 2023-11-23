@@ -24,6 +24,8 @@
     backdrop-filter: blur(1px);
     color: white;
     padding: 8px 12px;
+    pointer-events: none;
+    user-select: none;
 }
 .main_article ul{
     position: absolute;
@@ -37,6 +39,8 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
+    pointer-events: none;
+    user-select: none;
 }
 .main_article ul li {
     list-style: none;

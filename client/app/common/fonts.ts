@@ -3,7 +3,7 @@ import { Poppins, Playfair_Display } from "next/font/google";
 export const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
-  weight: ["200", "400", "600"],
+  weight: ["100", "200", "400", "600"],
   style: "normal",
 });
 
